@@ -25,3 +25,4 @@ function handleGameGrid(){
     }
 }
 
+console.log(gameGrid);
