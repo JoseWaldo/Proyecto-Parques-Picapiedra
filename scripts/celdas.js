@@ -1,16 +1,23 @@
-
 class Cell {
-    constructor(x, y){
+    constructor(x, y, color){
         this.x = x;
         this.y = y;
-        this.width = cellSize;
-        this.height = cellSize;
+        this.color = color;
+        this.width = 60;
+        this.height = 25;
     }
     draw(){
-        if (mouse.x && mouse.y && collision(this, mouse)){
-            ctx.strokeStyle = 'black';
-            ctx.strokeRect(this.x, this.y, this.width, this.height);
-            ctx.strokeStyle = 'black';
-        }
+        
+            ctx.fillStyle = this.color;
+            ctx.beginPath();                   
+            ctx.moveTo(this.x,this.y);
+            ctx.lineTo(this.x + this.width, this.y);
+            ctx.lineTo(this.x + this.width, this.y + this.height);
+            ctx.lineTo(this.x, this.y + this.height);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+
+        
     }
 }
